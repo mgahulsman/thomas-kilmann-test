@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f4f4f4;
+}
+
+.question {
+  margin: 20px 0;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+}
+
+#resultaat{
+  display: none;
+}
+
+
+  
