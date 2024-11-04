@@ -1,0 +1,15 @@
+#resultaat {
+  display: none;
+}
+
+section#resultaat div {
+  margin-top: 20px;
+  padding: 10px;
+  border-left: 4px solid var(--primary-color);
+  background: var(--background-color);
+}
+
+section#resultaat h3 {
+  color: var(--secondary-color);
+  margin-top: 0;
+}

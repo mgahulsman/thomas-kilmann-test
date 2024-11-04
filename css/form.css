@@ -1,0 +1,61 @@
+form#testForm {
+    margin: 20px auto;
+}
+
+.question {
+    margin-bottom: 40px;
+}
+
+.not-first-question {
+    margin-bottom: 40px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    background-color: var(--background-color);
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+label:hover {
+    background-color: var(--background-color);
+}
+
+input[type="radio"]:checked + label {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--button-hover);
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}

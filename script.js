@@ -82,20 +82,20 @@ document.getElementById('testForm').addEventListener('submit', function(event) {
 
   // Resultaten weergeven
   const instructies = document.getElementById('instructies');
-  const testForm = document.getElementById('testForm');
+  const inputForm = document.getElementById('input-form');
   const resultaat = document.getElementById('resultaat');
 
   instructies.style.transition = 'opacity 2s ease-in-out';
-  testForm.style.transition = 'opacity 2s ease-in-out';
+  inputForm.style.transition = 'opacity 2s ease-in-out';
   resultaat.style.transition = 'opacity 2s ease-in-out';
 
   instructies.style.opacity = '0';
-  testForm.style.opacity = '0';
+  inputForm.style.opacity = '0';
 
   // Wacht tot de overgang klaar is voordat de weergave wordt gewijzigd
   setTimeout(() => {
     instructies.style.display = 'none';
-    testForm.style.display = 'none';
+    inputForm.style.display = 'none';
     resultaat.style.display = 'block';
     resultaat.style.opacity = '0';
 

@@ -1,21 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #f4f4f4;
+  font-family: Roboto;
+  background-color: #f4f6f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #2c3e50;
+}
+
+section#instructies, section#resultaat {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Vragen formulier styling */
+form#testForm {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .question {
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
-button {
+.not-first-question{
+  margin-top: 50px;
+}
+
+.question p {
+  font-weight: bold;
+  color: #34495e;
+}
+
+input[type="radio"] {
+  display: none; /* Verberg de standaard radio-knop */
+}
+
+label {
+  display: block; /* Label als blok-element zodat het de volledige breedte benut */
+  padding: 12px;
+  margin: 8px 0;
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #555;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #3498db; /* Achtergrondkleur bij selectie */
+  color: #fff; /* Tekstkleur bij selectie */
+  border-color: #2980b9; /* Randkleur bij selectie */
+}
+
+label:hover {
+  background-color: #dce3e9; /* Hover achtergrondkleur */
+}
+
+button[type="submit"] {
   display: block;
-  margin: 20px auto;
+  width: 100%;
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
 }
 
-#resultaat{
-  display: none;
+button[type="submit"]:hover {
+  background-color: #2980b9;
 }
 
+/* Resultaat sectie styling */
+section#resultaat div {
+  margin-top: 20px;
+  padding: 10px;
+  border-left: 4px solid #3498db;
+  background: #ecf0f1;
+}
 
-  
+section#resultaat h3 {
+  color: #2c3e50;
+  margin-top: 0;
+}

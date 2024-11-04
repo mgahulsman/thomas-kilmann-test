@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thomas-Kilmann Test</title>
+    <style>
+        /* Basis stijlen */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .verdwijn {
+            display: none;
+        }
+
+        .verschijn {
+            display: block;
+        }
+
+        #testForm {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        #instructies, #resultaat {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thomas-Kilmann Conflict Test</h1>
+
+    <!-- Instructies sectie -->
+    <section id="instructies" class="verschijn">
+        <h2>Instructies</h2>
+        <p>Denk na over situaties waarin uw wensen verschillen van die van iemand anders.
+        Hoe reageert u gewoonlijk in deze situaties?</p>
+        <p>Onderstaande vragen bevatten paren van beweringen die mogelijk uw gedrag in 
+        verschillende situaties beschrijven. Voor elke vraag kiest u de bewering (A of B) die het beste 
+        bij u past.</p>
+        <p>In veel gevallen zullen noch de A- noch de B-beweringen erg kenmerkend zijn voor uw gedrag;
+        kies dan de bewering die het dichtst bij uw eigen gedrag ligt.</p>
+        <button onclick="showQuestions(1)">Start de test</button>
+    </section>
+
+    <!-- Vragen formulier -->
+    <section id="input-form" class="verdwijn">
+        <form id="testForm">
+            <!-- Dynamische vragenblokken worden hier ingevoegd door JavaScript -->
+            <button type="button" id="nextButton" onclick="nextSet()">Volgende 10 vragen</button>
+            <button type="button" id="submitButton" class="verdwijn" onclick="showResults()">Verstuur</button>
+        </form>
+    </section>
+
+    <!-- Resultaat sectie -->
+    <section id="resultaat" class="verdwijn">
+        <h2>Resultaat</h2>
+        <div id="wedijveren">
+            <h3>Wedijveren</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut optio odio adipisci totam.</p>
+        </div>
+        <div id="samenwerken">
+            <h3>Samenwerken</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut optio odio adipisci totam.</p>
+        </div>
+        <div id="compromis">
+            <h3>Compromis</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut optio odio adipisci totam.</p>
+        </div>
+        <div id="vermijden">
+            <h3>Vermijden</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut optio odio adipisci totam.</p>
+        </div>
+        <div id="aanpassen">
+            <h3>Aanpassen</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut optio odio adipisci totam.</p>
+        </div>
+    </section>
+
+    <script>
+        const instructiesSection = document.getElementById("instructies");
+        const inputFormSection = document.getElementById("input-form");
+        const resultaatSection = document.getElementById("resultaat");
+
+        const questions = [
+            // Voeg hier alle 30 vragen toe
+            "Wat doe je meestal in conflicten?",
+            "Hoe reageer je in een zakelijk conflict?",
+            "Wat doe je meestal als er een meningsverschil is?",
+            "Hoe reageer je als je een compromis moet vinden?",
+            "Hoe ga je om met spanningen?",
+            "Hoe vermijd je conflicten?",
+            "Wat doe je als je tijd nodig hebt om na te denken?",
+            "Hoe ga je om met doelstellingen?",
+            "Hoe belangrijk vind je het om je gelijk te krijgen?",
+            "Hoe benader je het nastreven van je doeleinden?",
+            "Hoe ga je om met geschilpunten?",
+            "Hoe vermijd je controverses?",
+            "Hoe stel je een compromis voor?",
+            "Hoe bespreek je je gedachten?",
+            "Hoe ga je om met de verhoudingen tussen jou en anderen?",
+            "Hoe ga je om met een verschil in meningen?",
+            "Hoe vind je het om te onderhandelen?",
+            "Hoe ga je om met een onoplosbaar probleem?",
+            "Hoe reageer je als je in een conflict wordt betrokken?",
+            "Hoe ga je om met stressvolle situaties?",
+            "Hoe voel je je in competitieve situaties?",
+            "Wat doe je als je het niet eens bent met een beslissing?",
+            "Hoe sta je tegenover anderen die het niet met je eens zijn?",
+            "Hoe ga je om met mensen die tegenstrijdige belangen hebben?",
+            "Hoe voel je je bij samenwerkingen?",
+            "Hoe ga je om met andere mensen die niet samenwerken?",
+            "Hoe ga je om met kritiek?",
+            "Hoe ga je om met de meningen van anderen?",
+            "Hoe waardeer je samenwerkingen?",
+            "Hoe zie je jezelf in de toekomst?"
+        ];
+
+        let currentSet = 0;
+
+        function showQuestions(set) {
+            currentSet = set;
+            instructiesSection.classList.add("verdwijn");
+            inputFormSection.classList.remove("verdwijn");
+
+            const form = document.getElementById("testForm");
+            form.innerHTML = ""; // Leegmaken voor nieuwe set vragen
+
+            const start = (set - 1) * 10;
+            const end = Math.min(set * 10, questions.length);
+            
+            for (let i = start; i < end; i++) {
+                const questionDiv = document.createElement("div");
+                questionDiv.classList.add("question");
+
+                const questionText = document.createElement("p");
+                questionText.textContent = `${i + 1}. ${questions[i]}`;
+                questionDiv.appendChild(questionText);
+
+                const optionA = document.createElement("input");
+                optionA.type = "radio";
+                optionA.name = `q${i + 1}`;
+                optionA.value = "A";
+                questionDiv.appendChild(optionA);
+                questionDiv.appendChild(document.createTextNode("A. Optie A "));
+
+                const optionB = document.createElement("input");
+                optionB.type = "radio";
+                optionB.name = `q${i + 1}`;
+                optionB.value = "B";
+                questionDiv.appendChild(optionB);
+                questionDiv.appendChild(document.createTextNode("B. Optie B "));
+
+                form.appendChild(questionDiv);
+            }
+
+            // Toon/verberg knoppen
+            document.getElementById("nextButton").classList.toggle("verdwijn", set === 3);
+            document.getElementById("submitButton").classList.toggle("verdwijn", set !== 3);
+        }
+
+        function nextSet() {
+            if (currentSet < 3) showQuestions(currentSet + 1);
+        }
+
+        function showResults() {
+            inputFormSection.classList.add("verdwijn");
+            resultaatSection.classList.remove("verdwijn");
+        }
+    </script>
+</body>
+</html>
