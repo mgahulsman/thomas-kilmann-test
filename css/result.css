@@ -5,7 +5,7 @@
 section#resultaat div {
   margin-top: 20px;
   padding: 10px;
-  border-left: 4px solid var(--primary-color);
+  border-left: 4px solid #FFCDAD;
   background: var(--background-color);
 }
 

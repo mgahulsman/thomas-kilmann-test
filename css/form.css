@@ -27,6 +27,8 @@ label {
     transition: background-color 0.3s, border-color 0.3s;
     position: relative;
     z-index: 1;
+    border-left: 5px solid var(--background-color);
+    
 }
 
 label:hover {
@@ -34,9 +36,10 @@ label:hover {
 }
 
 input[type="radio"]:checked + label {
-    background-color: var(--primary-color);
-    color: #fff;
-    border-color: var(--button-hover);
+    background-color: #E9EDEB;
+    border-width: 0px 0px 0px 5px;
+    border-style: solid;
+    border-color: #FFCDAD;
 }
 
 button[type="submit"] {

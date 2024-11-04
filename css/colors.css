@@ -1,7 +1,7 @@
 :root {
     --primary-color: #62594d;      /* Hoofdkleur voor knoppen, geselecteerde labels */
     --secondary-color: #42433e;    /* Kleur voor teksten zoals koppen */
-    --background-color: #E9ECEA;   /* Achtergrondkleur van de pagina */
+    --background-color: #F4F6F5;   /* Achtergrondkleur van de pagina */
     --text-color: #42433e;            /* Algemene tekstkleur */
     --section-background-color: #fff;
 }
